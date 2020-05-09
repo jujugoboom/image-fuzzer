@@ -33,7 +33,6 @@
       const files = this.$refs.uploader.files;
       const formData = new FormData();
       formData.append('image', files[0]);
-      formData.append('strength', )
       let resp = await this.$http.post('/generate', formData).then(r => r.json());
       this.image = `data:image/png;base64, ${resp.image}`;
       this.distance = resp.output.distance;

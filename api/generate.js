@@ -14,7 +14,6 @@ function getRandomInt(max) {
 }
 
 export default async function (req, res, next) {
-    console.log(process.env);
   if (req.method !== 'POST' || !req.file) {
     res.statusCode = 400;
     res.end('{"error": "image required for request"}');
