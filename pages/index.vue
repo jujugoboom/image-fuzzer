@@ -19,7 +19,7 @@
         <img :src="image" />
         <p> Generated new image with estimated distance of {{distance}} from original </p>
       </template>
-      <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">
+      <a href="https://github.com/jujugoboom/image-fuzzer" target="_blank" class="button--grey">
         GitHub
       </a>
 
