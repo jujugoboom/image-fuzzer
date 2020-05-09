@@ -1,6 +1,6 @@
-# adversarial-image
+# image-scrambler
 
-> My priceless Nuxt.js project
+> Image scrambler to defeat image matching censorship
 
 ## Build Setup
 

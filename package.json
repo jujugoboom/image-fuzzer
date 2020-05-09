@@ -1,7 +1,7 @@
 {
-  "name": "adversarial-image",
+  "name": "image-scrambler",
   "version": "1.0.0",
-  "description": "My priceless Nuxt.js project",
+  "description": "Image scrambler",
   "author": "Justin Covell",
   "private": true,
   "scripts": {
