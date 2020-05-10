@@ -1,71 +1,87 @@
-
 import bodyParser from 'body-parser';
 require('dotenv').config();
 
-export default {
+let config = {
   mode: 'universal',
   env: {
     DEEPAI_KEY: process.env.DEEPAI_KEY
   },
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: process.env.npm_package_name || '',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+    meta: [{
+        charset: 'utf-8'
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_description || ''
+      }
     ]
     // link: [
     //   { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     // ]
   },
-  http: {
-    host: process.env.VERCEL_URL || new URL(process.env._HTTP_BASE_URL_).host,
-    port: process.env.VERCEL_URL ? '' : new URL(process.env._HTTP_BASE_URL_).port,
-    https: process.env.VERCEL_URL ? true : false
+  /*
+   ** Customize the progress-bar color
+   */
+  loading: {
+    color: '#fff'
   },
   /*
-  ** Customize the progress-bar color
-  */
-  loading: { color: '#fff' },
+   ** Global CSS
+   */
+  css: [],
   /*
-  ** Global CSS
-  */
-  css: [
-  ],
+   ** Plugins to load before mounting the App
+   */
+  plugins: [],
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-  ],
-  /*
-  ** Nuxt.js dev-modules
-  */
+   ** Nuxt.js dev-modules
+   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss'
   ],
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js modules
+   */
   modules: [
     '@nuxt/http'
   ],
   serverMiddleware: [
-    bodyParser.urlencoded({ extended: true }),
+    bodyParser.urlencoded({
+      extended: true
+    }),
     '~/api/_parseImages.js',
-    { path: '/generate', handler: '~/api/generate.js' },
+    {
+      path: '/generate',
+      handler: '~/api/generate.js'
+    },
   ],
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-    }
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {}
   }
 }
+
+if (process.env.VERCEL_URL) {
+  config.http = {
+    host: process.env.VERCEL_URL || new URL(process.env._HTTP_BASE_URL_).host,
+    port: process.env.VERCEL_URL ? '' : new URL(process.env._HTTP_BASE_URL_).port,
+    https: process.env.VERCEL_URL ? true : false
+  }
+}
+
+export default config
