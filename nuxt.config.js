@@ -78,9 +78,8 @@ let config = {
 
 if (process.env.VERCEL_URL) {
   config.http = {
-    host: process.env.VERCEL_URL || new URL(process.env._HTTP_BASE_URL_).host,
-    port: process.env.VERCEL_URL ? '' : new URL(process.env._HTTP_BASE_URL_).port,
-    https: process.env.VERCEL_URL ? true : false
+    baseUrl: process.env.VERCEL_URL,
+    https: true
   }
 }
 
