@@ -23,7 +23,8 @@ let config = {
         name: 'description',
         content: process.env.npm_package_description || ''
       }
-    ]
+    ],
+    script: [{src: "https://plausible.io/js/plausible.js", "data-domain": 'justincovell.com', async: true, defer: true}]
     // link: [
     //   { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     // ]
