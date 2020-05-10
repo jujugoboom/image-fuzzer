@@ -14,6 +14,9 @@ function getRandomInt(max) {
 }
 
 export default async function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'image-scrambler.now.sh')
+  res.setHeader('Access-Control-Allow-Origin', 'image-scrambler.jujugoboom.now.sh')
+  res.setHeader('Vary', 'Origin')
   if (req.method !== 'POST' || !req.file) {
     res.statusCode = 400;
     res.end('{"error": "image required for request"}');
