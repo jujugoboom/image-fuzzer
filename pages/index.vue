@@ -6,7 +6,7 @@
         <template v-if="$fetchState.pending">
           <div class="spinner justify-center" />
         </template>
-         <template v-else>
+        <template v-else>
           <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
             <path
               d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
@@ -17,17 +17,18 @@
       </label>
     </div>
     <template v-if="image && distance !== undefined">
-      
-        <div class="flex flex-grow-0">
-           <span class="mt-2 text-base leading-normal"> Generated new image with estimated distance of {{distance}} from original image</span>
-        </div>
+
+      <div class="flex flex-grow-0">
+        <span class="mt-2 text-base leading-normal"> Generated new image with estimated distance of {{distance}} from
+          original image</span>
+      </div>
       <div class="flex flex-grow my-10 items-start">
-        <img :src="image" class="object-contain inset-0 content-start"/>
-        </div>
-      </template>
+        <img :src="image" class="object-contain inset-0 content-start" />
+      </div>
+    </template>
     <a href="https://github.com/jujugoboom/image-fuzzer" target="_blank" class="button--grey flex m-4">
-        GitHub
-      </a>
+      GitHub
+    </a>
   </div>
 </template>
 
@@ -52,11 +53,6 @@
 </script>
 
 <style>
-  /* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
   .container {
     margin: 0 auto;
     min-height: 100vh;
