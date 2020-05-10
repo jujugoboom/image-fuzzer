@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <div class="flex w-full h-screen items-center justify-center bg-grey-lighter">
+    <div class="flex w-full items-center justify-center bg-grey-lighter upload-button mt-12 mb-8">
       <label
         class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue-600 rounded-lg shadow-lg tracking-wide uppercase border border-blue-600 cursor-pointer hover:bg-blue-600 hover:text-white">
         <template v-if="$fetchState.pending">
-          <div class="spinner" />
+          <div class="spinner justify-center" />
         </template>
-        <template v-else>
+         <template v-else>
           <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
             <path
               d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
@@ -15,15 +15,19 @@
           <input type='file' class="hidden" accept="image/*" @change="$fetch" ref="uploader" />
         </template>
       </label>
-      <template v-if="image && distance !== undefined">
-        <img :src="image" />
-        <p> Generated new image with estimated distance of {{distance}} from original </p>
+    </div>
+    <template v-if="image && distance !== undefined">
+      
+        <div class="flex flex-grow-0">
+           <span class="mt-2 text-base leading-normal"> Generated new image with estimated distance of {{distance}} from original image</span>
+        </div>
+      <div class="flex flex-grow my-10 items-start">
+        <img :src="image" class="object-contain inset-0 content-start"/>
+        </div>
       </template>
-      <a href="https://github.com/jujugoboom/image-fuzzer" target="_blank" class="button--grey">
+    <a href="https://github.com/jujugoboom/image-fuzzer" target="_blank" class="button--grey flex m-4">
         GitHub
       </a>
-
-    </div>
   </div>
 </template>
 
@@ -57,6 +61,7 @@
     margin: 0 auto;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -84,6 +89,10 @@
     padding-top: 15px;
   }
 
+  .upload-button {
+    max-height: 250px;
+  }
+
   @keyframes spinner {
     to {
       transform: rotate(360deg);
@@ -94,14 +103,12 @@
     content: '';
     box-sizing: border-box;
     position: absolute;
-    top: 50%;
-    left: 50%;
     width: 20px;
     height: 20px;
     margin-top: -10px;
     margin-left: -10px;
     border-radius: 50%;
-    border-top: 2px solid #07d;
+    border-top: 2px solid #2D3748;
     border-right: 2px solid transparent;
     animation: spinner .6s linear infinite;
   }
