@@ -60,6 +60,7 @@ let config = {
       extended: true
     }),
     '~/api/_parseImages.js',
+    '~/api/_cors.js',
     {
       path: '/generate',
       handler: '~/api/generate.js'
