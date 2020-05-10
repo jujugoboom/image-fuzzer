@@ -80,7 +80,7 @@ let config = {
 
 if (process.env.VERCEL_URL) {
   config.http = {
-    host: "image.justincovell.com",
+    host: process.env.VERCEL_URL,
     port: 443,
     https: true
   }
