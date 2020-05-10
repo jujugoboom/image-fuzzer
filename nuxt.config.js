@@ -53,7 +53,7 @@ export default {
   ],
   serverMiddleware: [
     bodyParser.urlencoded({ extended: true }),
-    '~/api/parseImages.js',
+    '~/api/_parseImages.js',
     { path: '/generate', handler: '~/api/generate.js' },
   ],
   /*
