@@ -21,6 +21,9 @@ export default {
     //   { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     // ]
   },
+  http: {
+    host: process.env.VERCEL_URL || new URL(process.env._HTTP_BASE_URL_).host
+  },
   /*
   ** Customize the progress-bar color
   */
