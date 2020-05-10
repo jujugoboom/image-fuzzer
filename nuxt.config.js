@@ -22,7 +22,8 @@ export default {
     // ]
   },
   http: {
-    host: process.env.VERCEL_URL || new URL(process.env._HTTP_BASE_URL_).host
+    host: process.env.VERCEL_URL || new URL(process.env._HTTP_BASE_URL_).host,
+    port: process.env.VERCEL_URL ? '' : new URL(process.env._HTTP_BASE_URL_).port
   },
   /*
   ** Customize the progress-bar color
