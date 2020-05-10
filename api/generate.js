@@ -35,13 +35,13 @@ export default async function (req, res, next) {
     });
     // noise.linear(0);
     let noise_name = `noise_tmp_${uuidv4()}.png`;
-    await noise.toFile(noise_name);
+    let noise_temp = await noise.png().toBuffer();
     input = input.composite([{
-      input: noise_name,
+      input: noise_temp,
       blend: "color-burn"
     }]);
     let new_image = await input.sharpen().png().toBuffer()
-    fs.unlinkSync(noise_name);
+    // fs.unlinkSync(noise_name);
     var resp = await deepai.callStandardApi("image-similarity", {
       image1: req.file.buffer,
       image2: new_image,
